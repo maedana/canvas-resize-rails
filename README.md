@@ -1,37 +1,45 @@
 # Canvas::Resize::Rails
 
-TODO: Write a gem description
+canvasResize(https://github.com/gokercebeci/canvasResize)をRails+carrierwaveで簡単に使えるようにする
 
-## Installation
+## インストール
 
-Add this to your Gemfile:
+Gemファイルに以下を追加
 
 ```ruby
 gem 'canvas-resize-rails'
 ```
 
-and run `bundle install`.
-
-## Usage
-
-In your `application.js`, include the css file:
+application.jsに以下を追加
 
 ```javascript
 //= require canvas-resize-sprockets
 ```
 
-Then restart your webserver if it was previously running.
+## 使い方
 
-## Examples
+carrierwaveのmodelをProfile, 対象のカラム名をimageとする場合、対象のmodelに以下のように設定
+
+```ruby
+  mount_uploader :image, ImageUploader
+  canvas_resize :image
+```
+
+formで例えば以下のようになっている場合、
+
+```haml
+= simple_form_for(@profile) do |f|
+  = f.input :image, as: :file, input_html: { class: 'resize_trigger' }
+```
+
+jsで以下のようにする。
+
 ```coffee
 $("input.resize_trigger").prepareToResizeForAll()
 ```
 
+これでファイルに画像を設定するタイミングで自動的に以下の処理が行われる
+* profile[image_base64]というhidden_fieldにbase64でエンコードされた画像が設定される
+* profile[image_file_name]というhidden_fieldにファイル名が設定される
 
-## Contributing
-
-1. Fork it ( http://github.com/<my-github-username>/canvas-resize-rails/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+この状態でsubmitするとリサイズ済みのファイルがcarrierwaveを通じて保存される
