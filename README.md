@@ -1,6 +1,6 @@
 # Canvas::Resize::Rails
 
-canvasResize(https://github.com/gokercebeci/canvasResize)をRails+carrierwaveで簡単に使えるようにする
+[canvasResize](https://github.com/gokercebeci/canvasResize)をRails+carrierwaveで簡単に使えるようにする
 
 ## インストール
 
