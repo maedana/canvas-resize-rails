@@ -4,21 +4,29 @@ TODO: Write a gem description
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this to your Gemfile:
 
-    gem 'canvas-resize-rails'
+```ruby
+gem 'canvas-resize-rails'
+```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install canvas-resize-rails
+and run `bundle install`.
 
 ## Usage
 
-TODO: Write usage instructions here
+In your `application.js`, include the css file:
+
+```javascript
+//= require canvas-resize-sprockets
+```
+
+Then restart your webserver if it was previously running.
+
+## Examples
+```coffee
+$("input.resize_trigger").prepareToResizeForAll()
+```
+
 
 ## Contributing
 
