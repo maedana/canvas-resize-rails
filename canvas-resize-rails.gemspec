@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Canvas::Resize::Rails::VERSION
   spec.authors       = ["maedana"]
   spec.email         = ["maeda.na@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Use canvasResize with Rails and carrierwave}
+  spec.description   = %q{This gem provides canvasResize driver for your Rails Application}
+  spec.homepage      = "https://github.com/maedana/canvas-resize-rails"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
